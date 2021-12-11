@@ -1,5 +1,9 @@
-const { app, BrowserWindow } = require('electron')
+const {app, BrowserWindow} = require('electron')
 const path = require("path")
+
+console.log(process.env.NODE_ENV)
+
+const isNotProduction = process.env.NODE_ENV !== "production"
 
 const createWindow = () => {
   const win = new BrowserWindow({
@@ -10,7 +14,9 @@ const createWindow = () => {
     }
   })
 
-  win.loadFile('index.html')
+  win.loadURL(
+    isNotProduction ? "http://localhost:3000" : `file://${path.join(__dirname, '../dist/index.html')}`
+  )
   win.webContents.openDevTools()
 }
 

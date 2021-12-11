@@ -2,10 +2,12 @@
   "name": "electron-app",
   "version": "0.0.0",
   "scripts": {
-    "dev": "electron .",
+    "dev": "vite",
+    "electron": "electron .",
     "build": "vue-tsc --noEmit && vite build",
     "preview": "vite preview"
   },
+  "main": "main.js",
   "dependencies": {
     "vue": "^3.2.23"
   },
